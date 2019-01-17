@@ -41,22 +41,40 @@ please cut-and-paste the text from that email here._
     * sabotage the team in some manner (physically harm a player and render them unable to play subsequent games)
   - Overzealous fans: They might try and find players in locker rooms to get autographs and _accidentally_ walk away with personal belongings
 - Countermeasures:
-  - Biometric scanners controlling access to restricted areas (given that this is one of the top football teams in the nation, they probably generate enough revenue that we can afford this investment)
+  - Biometric scanners controlling access to restricted areas 
+    * Given that this is one of the top football teams in the nation, they probably generate enough revenue that we can afford this investment
+    * Restricting access to certain areas is a solid first line of defense against an unauthorized accessor
   - Strong encryption on any confidential data, as well as strong login credentials for accessing the machine the data is stored on to begin with
+    * Should not be super costly
+    * Benefits of good encryption are very clear - without the key, it's _very_ hard to break, so even if someone manages to obtain the data, it's useless
 
 ## Problem 2
-- Scenario: {Stadium|TSA|Documents|Grading|G20}
+- Scenario: Grading
 - Assumptions:
-  - explain_your_assumptions
+  - We have complete control of the grading system.
+  - Grading system is online (submissions are done through an online portal) and are routed to and stored on a secure server.
+  - Access to student submissions and the scoring portal is online as well, done through some web app.
 - Assets:
-  - explanatory_paragraph
-  - explanatory_paragraph ...
+  - Student submissions: Each student submission is their own intellectual property. We don't want either:
+    * a student getting a hold of someone else's submission so they can cheat off of it, or
+    * some external third party getting a hold of student submissions for a project that could potentially have real-world applications
+  - Student grades: Each student has some online gradebook, which we only want instructors and that particular student to have access to.
+    * Instructors need to have both read + write access.
+    * Student only should have read access.
 - Threats:
-  - explanatory_paragraph 
-  - explanatory_paragraph ...
+  - A student trying to alter their grades to be better.
+  - A student trying to intercept/access other students' submissions in order to improve their own submission.
+  - Some external third party trying to gain access to confidential student data without authorization.
 - Countermeasures:
-  - explanatory_paragraph
-  - explanatory_paragraph ...
+  - Ensure the secure server storing all the data is physically located somewhere that students (and external third parties) cannot access it - this prevents them from copying all the data onto a drive and brute-forcing it elsewhere.
+    * Might be somewhat expensive
+    * But is an excellent start towards securing data - network access can be restricted to a much greater degree than hardware access can
+  - Strong permissions on the server/mechanism used to access this data - a student's login should only allow them to access their own file storage.
+  - Strong read/write permissions on the gradebook - students should only have read access, while instructors need both read and write access.
+  - Strong authentication - a central authentication service that requires a strong password on the user end
+  - A system that monitors login attempts
+    * If more than a certain number of attempts are made within a certain time limit, lock the account
+    * Prevents anyone from attempting to brute-force a password
 
 ## Problem 3
 - Scenario: Your choice (give a brief explanation)
