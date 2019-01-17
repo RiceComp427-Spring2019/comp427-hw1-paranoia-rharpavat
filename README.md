@@ -77,16 +77,20 @@ please cut-and-paste the text from that email here._
     * Prevents anyone from attempting to brute-force a password
 
 ## Problem 3
-- Scenario: Your choice (give a brief explanation)
+- Scenario: As head TA for a class, you create a grading assignment spreadsheet for a class and send it to all the TAs involved in the class.
 - Assumptions:
-  - explain_your_assumptions
+  - The spreadsheet is being shared via a link, so potentially anyone with the link might have access.
+  - TAs only have access to grade students they were assigned to.
 - Assets:
-  - explanatory_paragraph
-  - explanatory_paragraph ...
+  - The contents of the spreadsheet - each TA is assigned to grade a few students.
 - Threats:
-  - explanatory_paragraph 
-  - explanatory_paragraph ...
+  - TAs who might want to reassign some of their students to other TAs to lessen their workload.
+  - Students who might want to reassign themselves to TAs known for being 'easy' graders.
 - Countermeasures:
-  - explanatory_paragraph
-  - explanatory_paragraph ...
+  - Restrict edit access on the sheet to just yourself
+    * Easy to do
+    * Makes it a little more inconvenient for TAs to mark when they're done grading, but they can live with that
+  - Create an online form where a TA can submit their name + the name of the student they've finished grading
+    * Fairly easy to do
+    * Bogus submissions are easy to check - the only thing an attacker could potentially do is put the wrong information in the form. However, this information is easy to verify - if a form submission marks a student as graded but the student doesn't actually have a grade, it can be discarded. Similarly, if a TA's name is submitted along with the name of a student they were not assigned, that submission can be discarded since they only have access to grade the students they were assigned.
 
